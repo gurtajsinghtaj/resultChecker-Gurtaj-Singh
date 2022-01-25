@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result checker</title>
+    <link rel="stylesheet" href="./css/result checker.css">
+    <link rel="shortcut icon" href="alien.png">
+</head>
+<style>
+    * {
+        margin: 0%;
+        padding: 0%;
+    }
+    
+    body {
+        background: url(https://parrotsec.org/images/backgrounds/world-map-poly.jpg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    
+    nav {
+        width: 100%;
+        background: linear-gradient(to top, rgba(58, 58, 58, 0.726), rgba(36, 36, 36, 0.822), rgb(0, 0, 0));
+        position: absolute;
+        top: 0%;
+        text-align: center;
+        backdrop-filter: blur(5px);
+        box-shadow: 0px 5px 10px rgb(34, 34, 34);
+    }
+    
+    nav h2 {
+        color: white;
+        line-height: 30px;
+        margin-left: 15px;
+    }
+    
+    h1 {
+        text-align: center;
+        color: white;
+        margin-top: 30px;
+        margin-left: 7px;
+    }
+    
+    h2 {
+        margin-left: 140px;
+        margin-top: 15px;
+    }
+    
+    .showresult p {
+        margin-bottom: 30px;
+        font-size: 19px;
+        margin-left: 10px;
+        margin-top: 8px;
+    }
+    
+    .resultbox {
+        height: 490px;
+        width: 500px;
+        margin: auto;
+        margin-top: 100px;
+        color: white;
+        text-shadow: 0px 0px 5px gray;
+        background: rgba(255, 255, 255, 0.212);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur( 5px);
+        -webkit-backdrop-filter: blur( 5px);
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18);
+    }
+    
+    input {
+        padding: 10px;
+        margin-top: 10px;
+        background: rgba(255, 255, 255, 0.103);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        backdrop-filter: blur( 4px);
+        -webkit-backdrop-filter: blur( 4px);
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18);
+    }
+    
+    label {
+        margin-left: 70px;
+        color: rgb(108, 141, 0);
+        font-weight: bold;
+        font-size: 20px;
+    }
+    
+     ::placeholder {
+        color: white;
+    }
+    
+    textarea:focus,
+    input:focus {
+        color: rgb(0, 7, 78);
+    }
+    
+    button {
+        padding: 8px;
+        width: 100px;
+        background-color: rgba(72, 255, 0, 0.829);
+        box-shadow: 0 10px 35px 0 rgba(0, 0, 0, 0.37);
+        color: white;
+        font-weight: bold;
+        font-size: 20px;
+        border: hidden;
+        border-radius: 50px;
+        margin-top: 15px;
+        margin-left: 70px;
+    }
+    
+    @media (max-width:750px) {
+        .resultbox {
+            width: 300px;
+            height: 750px;
+        }
+        textarea:focus,
+        input:focus {
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+        }
+    }
+</style>
+
+<body>
+    <nav>
+        <h2>Eknoor Singh</h2>
+    </nav>
+    <div class="container">
+        <div class="resultbox">
+            <h1>Check Your Commerce Stream Result Here</h1>
+            <h2>Enter your marks</h2>
+            <div class="marksbox">
+                <label for="text">Accountancy</label>
+                <input id="Accountancy" type="text" placeholder="Accountancy Marks">
+                <br>
+                <label for="text">English</label>
+                <input id="eng" type="text" placeholder="English Marks">
+                <br>
+                <label for="text">Bussiness Studies</label>
+                <input id="Bussiness" type="text" placeholder="Bussiness Marks">
+                <br>
+                <label for="text">Economics</label>
+                <input id="Economics" type="text" placeholder="Economics Marks">
+                <br>
+                <label for="text">Computer</label>
+                <input id="Computer" type="text" placeholder="Computer Marks">
+                <br>
+                <a href="#"><button onclick="result()">Check</button></a>
+                <br>
+            </div>
+            <div class="showresult">
+                <p id="showR">Your reult will show here :-</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // get value 
+        // find total
+        // find percentage 
+        // check grade 
+        // show output 
+        function result() {
+
+            var Accountancy = document.getElementById('Accountancy').value
+            var eng = document.getElementById('eng').value
+            var Bussiness = document.getElementById('Bussiness').value
+            var Economics = document.getElementById('Economics').value
+            var Computer = document.getElementById('Computer').value
+
+            var total = parseInt(Accountancy) + parseInt(eng) + parseInt(Bussiness) + parseInt(Economics) + parseInt(Computer);
+            var percentage = total / 200 * 100
+
+            if (percentage >= 75) {
+                document.getElementById('showR').innerHTML = 'Your grade is A and your percentage is   ' + percentage + '% '
+            } else if (percentage < 75 && percentage >= 60) {
+                document.getElementById('showR').innerHTML = 'Your grade is B and your percentage is   ' + percentage + '%  You are pass in the examination'
+            } else if (percentage < 60 && percentage >= 33) {
+                document.getElementById('showR').innerHTML = 'Your grade is C and your percentage is   ' + percentage + '%  You are pass in the examination'
+            } else if (percentage < 33 && percentage >= 0) {
+                document.getElementById('showR').innerHTML = 'Your grade is D and your percentage is   ' + percentage + '%  You are failed in the examination Shame on you'
+            }
+        }
+    </script>
+</body>
+
+</html>
